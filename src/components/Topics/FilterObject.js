@@ -8,7 +8,6 @@ class FilterObject extends Component {
             userInput: '',
             filteredArray: []
         };
-        // this.filterOriginalArray = this.filterOriginalArray.bind(this);
     }
 
     inputChange(val) {
@@ -17,19 +16,7 @@ class FilterObject extends Component {
         })
     }
 
-    filterOriginalArray(arr) {
-        // for (var i = 0; i < arr.length; i++) {
-        //     for (let key in arr[i]) {
-        //         if (key === this.state.userInput) {
-                    
-        //             console.log(this.state.filteredArray.push())
-        //         }
-        //     }
-        // }
-        // this.setState({
-        //     filteredArray : 
-        // })
-
+    filterOriginalArray() {
         var newArray = this.state.unFilteredArray.filter((cur) => (cur[this.state.userInput]));
 
         this.setState({
@@ -38,13 +25,6 @@ class FilterObject extends Component {
 
     }
 
-    // newArray(){
-    //     this.setState({
-    //         filteredArray: objects
-    //     })
-    // }
-    //{newArray()}
-
     render() {
 
         return (
@@ -52,7 +32,7 @@ class FilterObject extends Component {
                 <h4>Filter Object</h4>
                 <span className='puzzleText'>{JSON.stringify(this.state.unFilteredArray)}</span>
                 <input className='inputLine' onChange={e => { this.inputChange(e.target.value) }} ></input>
-                <button className='confirmationButton' onClick={() => this.filterOriginalArray(this.state.unFilteredArray)} >Filter Array</button>
+                <button className='confirmationButton' onClick={() => this.filterOriginalArray()} >Filter Array</button>
                 <span className='resultsBox filterObjectRB'> {JSON.stringify(this.state.filteredArray)} </span>
             </div>
         )
